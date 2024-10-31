@@ -1,6 +1,8 @@
 using Exo.WebApi.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
+
+// ExoContext.cs(Contexto do Banco de Dados)
+
 
 namespace Exo.WebApi.Contexts
 {
@@ -19,13 +21,48 @@ namespace Exo.WebApi.Contexts
             if (!optionsBuilder.IsConfigured)
             {
                 // String de conexão usando autenticação SQL Server.
-                optionsBuilder.UseSqlServer("Server=DESK_I5\\SQLEXPRESS; Database=ExoApi; User ID=sa; Password=1234; Trusted_Connection=False;");
+                optionsBuilder.UseSqlServer("Server=DESK_I5\\SQLEXPRESS; Database=ExoApi; User ID=sa; Password=1234;");
             }
         }
 
         public DbSet<Projeto> Projetos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
+
+
+
+
+//using Exo.WebApi.Models;
+//using Microsoft.EntityFrameworkCore;
+//using Microsoft.Data.SqlClient;
+
+//namespace Exo.WebApi.Contexts
+//{
+//    public class ExoContext : DbContext
+//    {
+//        public ExoContext()
+//        {
+//        }
+
+//        public ExoContext(DbContextOptions<ExoContext> options) : base(options)
+//        {
+//        }
+
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//                // String de conexão usando autenticação SQL Server.
+//                optionsBuilder.UseSqlServer("Server=DESK_I5\\SQLEXPRESS; Database=ExoApi; User ID=sa; Password=1234; Trusted_Connection=False;");
+//            }
+//        }
+
+//        public DbSet<Projeto> Projetos { get; set; }
+
+//        public DbSet<Usuario> Usuarios { get; set; }
+//    }
+//}
 
 
 
